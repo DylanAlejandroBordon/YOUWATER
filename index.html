@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouWater | Agua gratis con tu marca en eventos B2B</title>
+<meta name="description" content="Repartimos agua gratis en congresos, ferias y desayunos de negocios, en envases de cartón con tu marca y un QR que mide el resultado. Dar primero, vender después.">
+<meta name="theme-color" content="#F3F7F8">
+<meta property="og:title" content="YouWater | Tu marca en la mano de tus futuros clientes">
+<meta property="og:description" content="Agua gratis con tu marca en los eventos donde están tus futuros clientes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 15 6 21a10 10 0 0 0 20 0C26 15 16 3 16 3z' fill='%23db1e1e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F7F8;--white:#fff;--ink:#0B1F2E;--aqua:#BFE3EE;--aqua-soft:#E3F1F6;--deep:#0E6E8C;--signal:#DB1E1E;
+  --muted:#42566A;--line:rgba(11,31,46,.16);
+  --disp:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,5vw,56px);--max:1200px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+h1,h2{font-family:var(--disp);font-weight:900;line-height:.94;letter-spacing:-.005em;text-wrap:balance}
+h1{font-size:clamp(3.2rem,5.8vw,6rem)}
+h2{font-size:clamp(2.5rem,4.8vw,4.2rem)}
+h3{font:700 1.3rem/1.25 var(--body)}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.sec{padding-block:clamp(72px,10vw,128px);scroll-margin-top:56px}
+.sec.w{background:var(--white)}
+.lead{font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.55;color:var(--muted);max-width:50ch}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border:2px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:700 1rem/1 var(--body);text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.r{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn.r:hover{background:var(--ink);border-color:var(--ink)}
+.btn.sm{min-height:40px;padding:0 16px;font-size:.95rem}
+.link{background:none;border:0;padding:8px 4px;font:600 .98rem var(--body);color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.link:hover{color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* Navegación */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:64px;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+.mark{display:inline-flex;align-items:center;gap:9px;font:900 1.7rem/1 var(--disp);letter-spacing:.01em;text-decoration:none}
+.mark::before{content:'';width:11px;height:11px;background:var(--signal);flex:none}
+.nav nav{display:flex;gap:28px;margin-left:auto}
+.nav nav a{font:600 .98rem var(--body);text-decoration:none;color:var(--muted)}
+.nav nav a:hover{color:var(--ink)}
+@media(max-width:760px){.nav nav{display:none}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:min(100svh,840px);padding-top:64px}
+.hero-l{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:clamp(44px,7vw,96px) clamp(28px,4vw,56px) clamp(44px,7vw,96px) max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
+.hero-l .lead{max-width:46ch}
+.note{font-size:.95rem;color:var(--muted)}
+.stage{background:var(--aqua);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px var(--pad)}
+.brandin{display:flex;flex-direction:column;gap:6px;width:100%;max-width:380px;font:600 .95rem var(--body)}
+.brandin input{height:52px;padding:0 16px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font:700 1.15rem var(--body);width:100%}
+.brandin input::placeholder{color:#6b7f8f;font-weight:500}
+.brandin input:focus-visible{outline-offset:2px}
+#scene{position:relative;width:100%;max-width:520px;height:clamp(400px,50vw,520px);cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+#scene:active{cursor:grabbing}
+#gl{position:absolute;inset:0}#gl canvas{display:block;width:100%;height:100%}
+.cap{font:600 .98rem var(--body);min-height:1.5em}
+.seg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{min-height:40px;padding:0 14px;border:1.5px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:600 .92rem var(--body);cursor:pointer;transition:background-color .15s,color .15s}
+.chip:hover{background:rgba(11,31,46,.1)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mock{font-size:.85rem;color:#2c4558;text-align:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.hero-l{padding:44px var(--pad) 48px}}
+
+/* Cómo funciona */
+.head{display:flex;flex-direction:column;gap:18px;max-width:760px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(40px,6vw,72px);padding:0;list-style:none}
+.steps li{border-top:3px solid var(--ink);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.steps .nm{font:900 5rem/.9 var(--disp);color:var(--signal)}
+.steps p{color:var(--muted);max-width:36ch}
+@media(max-width:820px){.steps{grid-template-columns:1fr}.steps li{flex-direction:row;flex-wrap:wrap;column-gap:20px}.steps .nm{font-size:3.6rem}}
+
+/* Por qué funciona */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.why h2{font-size:clamp(2.8rem,5.6vw,5rem)}
+.why dl{border-top:1px solid var(--line)}
+.why dl div{padding:22px 0;border-bottom:1px solid var(--line)}
+.why dt{font:700 1.2rem/1.3 var(--body);margin-bottom:4px}
+.why dd{color:var(--muted);max-width:52ch}
+@media(max-width:820px){.why{grid-template-columns:1fr}}
+
+/* Para quién */
+.aud{margin-top:clamp(36px,5vw,64px);border-top:2px solid var(--ink)}
+.aud article{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) auto;gap:clamp(16px,3vw,48px);align-items:center;padding:30px 0;border-bottom:1px solid var(--line)}
+.aud h3{font:900 clamp(2rem,3.2vw,2.8rem)/.95 var(--disp)}
+.aud p{color:var(--muted);max-width:52ch}
+@media(max-width:900px){.aud article{grid-template-columns:1fr;align-items:start}}
+
+/* Propuesta (asistente) */
+.prop{background:var(--ink);color:#fff}
+.prop-g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,88px);align-items:start}
+.prop .lead{color:#b9cbd8;margin-top:18px}
+.panel{background:var(--paper);color:var(--ink);border-radius:14px;padding:clamp(22px,3.4vw,40px);min-height:420px}
+.panel h3{font:800 1.5rem/1.25 var(--body);margin-bottom:20px;outline:none}
+.prog{display:flex;gap:6px;margin-bottom:12px}
+.prog i{flex:1;height:5px;border-radius:3px;background:#cfdbe2}
+.prog i.on{background:var(--signal)}
+.cnt{font:600 .9rem var(--body);color:var(--muted);margin-bottom:10px}
+.opts{display:grid;gap:10px;margin-bottom:16px}
+.opt{width:100%;min-height:54px;padding:12px 18px;text-align:left;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:600 1.02rem/1.3 var(--body);cursor:pointer;transition:border-color .15s,background-color .15s}
+.opt:hover{border-color:var(--ink);background:var(--aqua-soft)}
+.panel input{width:100%;height:54px;padding:0 16px;border:1.5px solid #9fb2c0;border-radius:6px;background:#fff;font:600 1.05rem var(--body);color:var(--ink)}
+.panel input:focus-visible{outline-offset:2px}
+.sum{margin:0 0 22px;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.sum div{display:flex;justify-content:space-between;gap:20px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.sum dt{color:var(--muted)}.sum dd{font-weight:600;text-align:right}
+.hint{font-size:.92rem;color:var(--muted);margin-top:14px}
+@media(max-width:900px){.prop-g{grid-template-columns:1fr}.panel{min-height:0}}
+
+/* Preguntas */
+.faq-g{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,6vw,88px);align-items:start}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font:700 1.15rem/1.3 var(--body);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';flex:none;font:400 1.9rem/1 var(--body);color:var(--signal)}
+.faq details[open] summary::after{content:'\2212'}
+.faq details p{padding:0 44px 24px 0;color:var(--muted);max-width:58ch}
+@media(max-width:820px){.faq-g{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:40px 0 48px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;color:var(--muted);font-size:.95rem}
+.foot a{color:var(--ink);font-weight:600;text-underline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="mark" href="#top" aria-label="YouWater, ir al inicio">YOUWATER</a>
+    <nav aria-label="Principal">
+      <a href="#como">Cómo funciona</a>
+      <a href="#sumate">Para quién</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <a class="btn r sm" id="wa" href="https://wa.me/5491150462722?text=Hola%20YouWater%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20sponsor%20en%20envases%20sustentables%20para%20eventos%20B2B." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-l">
+      <h1 id="h1">Tu marca en la mano de tus futuros clientes</h1>
+      <p class="lead">Repartimos agua gratis en congresos, ferias y desayunos de negocios, en envases de cartón con tu marca y un QR que mide el resultado.</p>
+      <div class="row">
+        <a class="btn r" href="#propuesta" data-go="marca">Armar mi propuesta</a>
+        <a class="btn" id="wa2" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+      <p class="note" id="qn">Unas pocas preguntas y seguimos por WhatsApp. Sin compromiso.</p>
+    </div>
+
+    <div class="stage">
+      <label class="brandin">Probá con el nombre de tu marca
+        <input id="brand" maxlength="16" placeholder="Tu marca" autocomplete="off">
+      </label>
+      <div id="scene" tabindex="0" role="group" aria-label="Maqueta 3D del envase con tu marca. Arrastrá para girarlo o usá las flechas del teclado.">
+        <div id="gl" aria-hidden="true"></div>
+      </div>
+      <p class="cap" id="fl">Frente</p>
+      <div class="seg" role="group" aria-label="Elegir cara del envase">
+        <button class="chip" type="button" data-f="0" aria-pressed="true">Frente</button>
+        <button class="chip" type="button" data-f="2" aria-pressed="false">Dorso</button>
+        <button class="chip" type="button" data-f="1" aria-pressed="false">Lateral YouWater</button>
+        <button class="chip" type="button" data-f="3" aria-pressed="false">Lateral legal</button>
+        <button class="chip" type="button" id="au" aria-pressed="false">Girar solo</button>
+      </div>
+      <p class="mock">Maqueta conceptual. El diseño final lo definimos con vos.</p>
+    </div>
+  </section>
+
+  <section class="sec w" id="como" aria-labelledby="h-como">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="h-como">Dar primero, vender después</h2>
+        <p class="lead">El agua abre la conversación y tu marca ya está en la mano. Así funciona.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="nm" aria-hidden="true">1</span>
+          <h3>Elegís el evento</h3>
+          <p>Congresos, ferias y desayunos de negocios donde está tu público. Vos definís a quién querés llegar.</p>
+        </li>
+        <li>
+          <span class="nm" aria-hidden="true">2</span>
+          <h3>Armamos tu envase</h3>
+          <p>Tu marca y un QR trazable en un envase de cartón reciclable. Lo definimos juntos.</p>
+        </li>
+        <li>
+          <span class="nm" aria-hidden="true">3</span>
+          <h3>Repartimos y medimos</h3>
+          <p>Entregamos el agua en mano durante el evento. Al terminar recibís las unidades entregadas, los escaneos del QR y fotos de la acción.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-why">
+    <div class="wrap why">
+      <h2 id="h-why">Nadie pide otro anuncio. Todos aceptan agua gratis.</h2>
+      <dl>
+        <div><dt>Sin interrumpir a nadie</dt><dd>Sin stands invasivos ni volantes de papel. Tu marca queda en un envase que la persona de verdad usa.</dd></div>
+        <div><dt>Con resultados que se miden</dt><dd>Cada envase lleva un QR trazable y recibís un reporte de métricas al finalizar el evento.</dd></div>
+        <div><dt>Sin costo para el organizador</dt><dd>El agua se financia con los sponsors, así que sumar el evento no le cuesta nada a quien lo organiza.</dd></div>
+        <div><dt>Pensado para reciclar</dt><dd>Envases de cartón 100% reciclable, con logística de entrega y reciclaje coordinada en el predio.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec w" id="sumate" aria-labelledby="h-sum">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="h-sum">Tres formas de sumarte a la red</h2>
+        <p class="lead">Elegí la tuya y te preparamos el siguiente paso.</p>
+      </div>
+      <div class="aud">
+        <article>
+          <h3>Soy una marca</h3>
+          <p>Llegá a tus futuros clientes en congresos clave, con QR trazable y reporte de métricas al finalizar el evento.</p>
+          <a class="btn r" href="#propuesta" data-go="marca">Armar mi propuesta</a>
+        </article>
+        <article>
+          <h3>Organizo eventos</h3>
+          <p>Agua de calidad gratis para tus asistentes, sin costo para la organización. Nos ocupamos de la entrega y del reciclaje en el predio.</p>
+          <a class="btn" href="#propuesta" data-go="organizador">Sumar mi evento</a>
+        </article>
+        <article>
+          <h3>Produzco envases</h3>
+          <p>Alianzas para producir cartón, llenar o etiquetar a façon para eventos, con anticipo y plazos de entrega confirmados.</p>
+          <a class="btn" href="#propuesta" data-go="productor">Quiero colaborar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec prop" id="propuesta" aria-labelledby="h-prop">
+    <div class="wrap prop-g">
+      <div>
+        <h2 id="h-prop">Contanos qué necesitás</h2>
+        <p class="lead">Elegí tu caso y respondé. Te armamos el mensaje y seguimos por WhatsApp.</p>
+      </div>
+      <div class="panel" id="sim" aria-live="polite">
+        <noscript><p>Activá JavaScript para armar tu propuesta o escribinos directo por <a href="https://wa.me/5491150462722">WhatsApp</a>.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="h-faq">
+    <div class="wrap faq-g">
+      <h2 id="h-faq">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details><summary>¿Cuánto cuesta ser sponsor en un evento?</summary><p>Depende de la cantidad de envases y del tipo de evento. Te pasamos una cotización cerrada, sin costos ocultos.</p></details>
+        <details><summary>¿Cómo mido los resultados?</summary><p>Con las unidades entregadas en mano, los escaneos del QR y las fotos de la acción durante la jornada.</p></details>
+        <details><summary>¿Le cuesta algo al organizador del evento?</summary><p>No. El agua se financia 100% con los patrocinadores corporativos.</p></details>
+        <details><summary>¿Y si el predio tiene exclusividad de bebidas?</summary><p>Lo validamos antes con la organización. Si hay un acuerdo de exclusividad vigente, preferimos no intervenir.</p></details>
+        <details><summary>¿Por qué el agua es gratis para los asistentes?</summary><p>Porque dar primero funciona: la persona recibe algo útil en el momento justo y asocia tu marca con hospitalidad sustentable.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>YouWater Argentina. Publicidad B2B sustentable.</span>
+  </div>
+</footer>
+
+<script src="bottle.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const waUrl=(n,m)=>`https://wa.me/${n}`+(m?`?text=${encodeURIComponent(m)}`:'');
+
+/* ---------- Configuración (se puede reemplazar con un config.json) ---------- */
+const DEF={whatsapp:{number:"5491150462722"},flows:{
+ marca:{label:"Soy una marca y quiero que me conozcan",
+  msg:"Hola YouWater, soy {nombre}. Me interesa el sponsor para mi marca ({negocio}). Quiero llegar a: {publico}. Quiero que la gente: {accion}. Evento: {evento}. Plazo: {plazo}. Inversión estimada: {inversion}.",
+  steps:[
+   {id:"negocio",l:"Rubro",q:"¿A qué se dedica tu negocio?",o:["Servicios profesionales","Tecnología o software","Inmobiliaria o construcción","Comercio o finanzas","Otro rubro"]},
+   {id:"publico",l:"Público",q:"¿A quién querés llegar?",o:["Dueños de pymes","Profesionales independientes","Directores C-Level"]},
+   {id:"accion",l:"Acción buscada",q:"¿Qué querés que haga la gente al ver tu marca?",o:["Escanear un QR","Escribirme por WhatsApp","Visitar mi web"]},
+   {id:"evento",l:"Evento",q:"¿Qué tipo de evento te interesa?",o:["Exposición o feria","Congreso profesional","Desayuno de negocios"]},
+   {id:"plazo",l:"Plazo",q:"¿Para cuándo lo pensás?",o:["En los próximos 3 meses","Entre 3 y 6 meses","Más adelante"]},
+   {id:"inversion",l:"Inversión",q:"¿Qué inversión tenés en mente por evento?",o:["USD 1.000 a 3.000","USD 3.000 a 10.000","Todavía no lo definí"]},
+   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un cliente"}]},
+ organizador:{label:"Organizo un evento B2B",
+  msg:"Hola YouWater, soy {nombre}, organizo {evento} ({tipo}). Fecha: {fecha}. Asistentes: {asistentes}. Exclusividad de bebidas: {exclusividad}. Sponsors externos: {sponsors}. Me interesa agua gratis para mis asistentes.",
+  steps:[
+   {id:"tipo",l:"Tipo de evento",q:"¿Qué tipo de evento organizás?",o:["Exposición o feria","Congreso profesional","Evento corporativo"]},
+   {id:"fecha",l:"Fecha",q:"¿Para cuándo es tu próxima fecha?",o:["Próximos 3 meses","Entre 3 y 6 meses"]},
+   {id:"asistentes",l:"Asistentes",q:"¿Cuántas personas esperás?",o:["300 a 1.000","1.000 a 5.000","Más de 5.000"]},
+   {id:"exclusividad",l:"Exclusividad de bebidas",q:"¿Tenés exclusividad de bebidas con otro sponsor?",o:["Sí","No","No sé"]},
+   {id:"sponsors",l:"Sponsors externos",q:"¿Aceptan sponsors que traigan su propio producto?",o:["Sí","Depende del caso"]},
+   {id:"evento",l:"Evento",q:"¿Cómo se llama tu evento?",t:"text",p:"Nombre del evento",d:"mi evento"},
+   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un organizador"}]},
+ productor:{label:"Produzco envases, agua o etiquetas",
+  msg:"Hola YouWater, soy {nombre} de {empresa}. Producimos: {rubro}. Tirada mínima: {minimo}. Plazo de entrega: {plazo}. Marca de terceros: {marcablanca}. Habilitación para envasar agua: {habilitacion}.",
+  steps:[
+   {id:"rubro",l:"Producimos",q:"¿Qué producís?",o:["Envases de cartón","Envasado a façon","Etiquetas o impresión"]},
+   {id:"minimo",l:"Tirada mínima",q:"¿Cuál es tu tirada mínima?",o:["1.000 a 5.000","5.000 a 20.000","Más de 20.000"]},
+   {id:"plazo",l:"Plazo de entrega",q:"¿En cuánto tiempo entregás?",o:["Menos de 4 semanas","4 a 8 semanas"]},
+   {id:"marcablanca",l:"Marca de terceros",q:"¿Trabajás con marca de terceros?",o:["Sí","Depende de la cantidad"]},
+   {id:"habilitacion",l:"Habilitación para envasar agua",q:"¿Tenés habilitación para envasar agua?",o:["Sí","En trámite"]},
+   {id:"empresa",l:"Empresa",q:"¿Cómo se llama tu empresa?",t:"text",p:"Nombre de tu empresa",d:"mi empresa"},
+   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un productor"}]}
+}};
+
+carton();
+fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({})).then(c=>{const C={...DEF,...c};links(C);sim(C)});
+
+function links(C){
+  const n=((C.whatsapp&&C.whatsapp.number)||'5491150462722').replace(/\D/g,'');
+  const m="Hola YouWater, me interesa conocer más sobre el sponsor en envases sustentables para eventos B2B.";
+  ['#wa','#wa2','#fwa'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
+}
+
+/* ---------- Envase 3D ---------- */
+function rnd(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+function carton(){
+  const sc=$('#scene'),cap=$('#fl'),au=$('#au'),chips=$$('[data-f]');
+  const NAMES=['Frente','Lateral YouWater','Dorso','Lateral legal'],AZ=[0,-Math.PI/2,Math.PI,Math.PI/2];
+  let api=null,cur=-1,spin=true,tb;
+  const mark=a=>{const i=Math.abs(a)<Math.PI/4?0:(a<=-Math.PI/4&&a>-3*Math.PI/4)?1:(a>=Math.PI/4&&a<3*Math.PI/4)?3:2;if(i!==cur){cur=i;cap.textContent=NAMES[i];chips.forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.f===i)))}};
+  const setSpin=v=>{spin=v;au.setAttribute('aria-pressed',String(v));api&&api.spin(v)};
+  au.setAttribute('aria-pressed',String(spin));
+  chips.forEach(x=>x.onclick=()=>{setSpin(false);api&&api.goTo(AZ[+x.dataset.f])});
+  au.onclick=()=>setSpin(!spin);
+  sc.onkeydown=e=>{if(!api)return;if(e.key==='ArrowLeft'){setSpin(false);api.nudge(-.45);e.preventDefault()}if(e.key==='ArrowRight'){setSpin(false);api.nudge(.45);e.preventDefault()}};
+  const brand=()=>$('#brand').value.trim()||'Tu marca';
+  $('#brand').addEventListener('input',()=>{clearTimeout(tb);tb=setTimeout(()=>api&&api.setBrand(brand()),200)});
+  if(!window.YWBottle){sc.innerHTML='<p class="mock" style="padding:40px 20px">No se pudo cargar el modelo 3D.</p>';return}
+  YWBottle.init($('#gl'),{brand:brand(),spin,reduced:RM,onAzimuth:mark}).then(a=>{if(!a){sc.innerHTML='<p class="mock" style="padding:40px 20px">Tu navegador no puede mostrar el modelo 3D.</p>';return}api=a}).catch(e=>console.error(e));
+}
+
+/* ---------- Asistente de propuesta ---------- */
+function sim(C){
+  const F=C.flows,K=Object.keys(F),B=$('#sim'),num=((C.whatsapp&&C.whatsapp.number)||'').replace(/\D/g,'');
+  let fk,S,A,n;
+  if(F.marca&&$('#qn'))$('#qn').textContent=`${F.marca.steps.length} preguntas y seguimos por WhatsApp. Sin compromiso.`;
+
+  const draw=(html,focus)=>{B.innerHTML=html;if(focus){const h=B.querySelector('h3');if(h)h.focus({preventScroll:true})}};
+  const prog=()=>`<div class="prog" aria-hidden="true">${S.map((_,j)=>`<i class="${j<=n?'on':''}"></i>`).join('')}</div>`;
+
+  function pick(focus){
+    draw(`<h3 tabindex="-1">¿Cómo querés sumarte a YouWater?</h3><div class="opts">`+K.map(k=>`<button class="opt" type="button" data-k="${k}">${esc(F[k].label)}</button>`).join('')+`</div>`,focus);
+    B.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>start(b.dataset.k));
+  }
+  function start(k,scroll){
+    fk=k;S=F[k].steps;A={};n=0;go();
+    if(scroll)$('#propuesta').scrollIntoView({behavior:RM?'auto':'smooth'});
+  }
+  const back=()=>{if(n>0){n--;go()}else pick(true)};
+
+  function go(){
+    if(n<S.length){
+      const s=S[n],head=`${prog()}<p class="cnt">Pregunta ${n+1} de ${S.length}</p><h3 tabindex="-1">${esc(s.q)}</h3>`;
+      if(s.t==='text'){
+        draw(head+`<div class="opts"><input id="tx" maxlength="60" placeholder="${esc(s.p||'')}" aria-label="${esc(s.q)}" autocomplete="off"></div><div class="row"><button class="btn r" id="ok" type="button">Continuar</button><button class="link" id="bk" type="button">Volver</button></div>`,true);
+        const f=()=>{A[s.id]=$('#tx').value.trim()||s.d||'sin dato';n++;go()};
+        $('#ok').onclick=f;$('#tx').onkeydown=e=>{if(e.key==='Enter')f()};
+      }else{
+        draw(head+`<div class="opts">`+s.o.map(o=>`<button class="opt" type="button">${esc(o)}</button>`).join('')+`</div><button class="link" id="bk" type="button">Volver</button>`,true);
+        B.querySelectorAll('.opts .opt').forEach(b=>b.onclick=()=>{A[s.id]=b.textContent;n++;go()});
+      }
+      $('#bk').onclick=back;
+    }else{
+      const m=F[fk].msg.replace(/\{(\w+)\}/g,(_,k)=>A[k]||'');
+      const rows=S.filter(s=>s.id!=='nombre').map(s=>`<div><dt>${esc(s.l)}</dt><dd>${esc(A[s.id])}</dd></div>`).join('');
+      draw(`${prog()}<h3 tabindex="-1">Listo, ${esc(A.nombre)}.</h3><dl class="sum">${rows}</dl><div class="row">`+
+        (num?`<a class="btn r" target="_blank" rel="noopener" href="${waUrl(num,m)}">Seguir por WhatsApp</a>`:`<button class="btn r" id="cp" type="button">Copiar mensaje</button>`)+
+        `<button class="link" id="rs" type="button">Empezar de nuevo</button></div><p class="hint">Se abre WhatsApp con tu mensaje ya armado. Solo tenés que enviarlo.</p>`,true);
+      $('#rs').onclick=()=>pick(true);
+      const c=$('#cp');if(c)c.onclick=()=>{(navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).then(()=>c.textContent='Mensaje copiado').catch(()=>c.textContent='No se pudo copiar')};
+    }
+  }
+
+  $$('[data-go]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();start(a.dataset.go,1)}));
+  const hh=()=>{const k=location.hash.slice(1);if(F[k])start(k,1)};
+  addEventListener('hashchange',hh);pick(false);hh();
+}
+</script>
+</body>
+</html>
