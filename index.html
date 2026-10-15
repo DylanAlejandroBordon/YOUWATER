@@ -59,6 +59,12 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .hero-l{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:clamp(44px,7vw,96px) clamp(28px,4vw,56px) clamp(44px,7vw,96px) max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
 .hero-l .lead{max-width:46ch}
 .note{font-size:.95rem;color:var(--muted)}
+.hero-l{background:linear-gradient(rgba(11,31,46,.72),rgba(11,31,46,.84)),url(fondo-hero.webp) center/cover no-repeat var(--ink);color:#fff}
+.hero-l h1{color:#fff}
+.hero-l .lead{color:#D6E3EC}
+.hero-l .note{color:#B9CBD8}
+.hero-l .btn:not(.r){border-color:#fff;color:#fff}
+.hero-l .btn:not(.r):hover{background:#fff;color:var(--ink)}
 .stage{background:var(--aqua);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px var(--pad)}
 .brandin{display:flex;flex-direction:column;gap:6px;width:100%;max-width:380px;font:600 .95rem var(--body)}
 .brandin input{height:52px;padding:0 16px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font:700 1.15rem var(--body);width:100%}
@@ -156,8 +162,29 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;color:var(--muted);font-size:.95rem}
 .foot a{color:var(--ink);font-weight:600;text-underline-offset:3px}
 
+/* Tema oscuro: barra, hero, secciones oscuras y pie */
+.nav{background:var(--ink);border-bottom-color:rgba(255,255,255,.12)}
+.nav .mark{color:#fff}
+.nav nav a{color:#C3D3DF}
+.nav nav a:hover{color:#fff}
+.stage{background:radial-gradient(ellipse 70% 60% at 50% 58%,#25577F 0%,#153852 48%,#0E2538 100%);color:#fff}
+.stage .chip{border-color:rgba(255,255,255,.65);color:#fff}
+.stage .chip:hover{background:rgba(255,255,255,.14)}
+.stage .chip[aria-pressed="true"]{background:#fff;border-color:#fff;color:var(--ink)}
+.stage .mock{color:#A9BECE}
+.sec.dark{background:var(--ink);color:#fff}
+.sec.dark .lead,.sec.dark .aud p{color:#B9CBD8}
+.sec.dark .aud{border-top-color:rgba(255,255,255,.55)}
+.sec.dark .aud article{border-bottom-color:rgba(255,255,255,.18)}
+.sec.dark .btn:not(.r){border-color:#fff;color:#fff}
+.sec.dark .btn:not(.r):hover{background:#fff;color:var(--ink)}
+footer{background:var(--ink);border-top:0}
+.foot{color:#B9CBD8}
+.foot a{color:#fff}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 </style>
+<link rel="preload" as="image" href="fondo-hero.webp" type="image/webp">
 </head>
 <body>
 
@@ -167,7 +194,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
     <nav aria-label="Principal">
       <a href="#como">Cómo funciona</a>
       <a href="#sumate">Para quién</a>
-      <a href="#quien">Quién soy</a>
+      <a href="#quien">Quiénes somos</a>
       <a href="#faq">Preguntas</a>
     </nav>
     <a class="btn r sm" id="wa" href="https://wa.me/5491150462722?text=Hola%20YouWater%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20sponsor%20en%20envases%20sustentables%20para%20eventos%20B2B." target="_blank" rel="noopener">WhatsApp</a>
@@ -220,7 +247,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
         <li>
           <span class="nm" aria-hidden="true">2</span>
           <h3>Armamos tu envase</h3>
-          <p>Tu marca y tu QR en un envase de cartón reciclable. El QR puede llevar directo a la web de tu negocio o a un descuento especial, eso lo elegís vos.</p>
+          <p>Tu marca y tu QR en un envase de cartón. El QR puede llevar directo a la web de tu negocio o a un descuento especial, eso lo elegís vos.</p>
         </li>
         <li>
           <span class="nm" aria-hidden="true">3</span>
@@ -236,17 +263,17 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
       <h2 id="h-why">Nadie pide otro anuncio. Todos aceptan agua gratis.</h2>
       <dl>
         <div><dt>Sin interrumpir a nadie</dt><dd>Sin stands invasivos ni volantes de papel. Tu marca queda en un envase que la persona de verdad usa.</dd></div>
-        <div><dt>Con resultados que se miden</dt><dd>Cada envase lleva un QR que manda a tu web o a un descuento, y vos ves cuánta gente lo escanea. Al terminar el evento te cuento cuántas unidades se entregaron y te paso fotos.</dd></div>
+        <div><dt>Con resultados que se miden</dt><dd>Cada envase lleva un QR que manda a tu web o a un descuento, y vos ves cuánta gente lo escanea. Al terminar el evento te contamos cuántas personas la recibieron y te pasamos fotos.</dd></div>
         <div><dt>Gratis para quien la recibe</dt><dd>El agua la paga la marca: los asistentes la reciben gratis y vos sumás tu marca a su día.</dd></div>
-        <div><dt>Pensado para reciclar</dt><dd>Envases de cartón 100% reciclable, pensados para dejar el evento ordenado.</dd></div>
+        <div><dt>Un envase que se lleva en la mano</dt><dd>Tu marca en un envase de cartón que la persona usa y se lleva consigo.</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="sec w" id="sumate" aria-labelledby="h-sum">
+  <section class="sec dark" id="sumate" aria-labelledby="h-sum">
     <div class="wrap">
       <div class="head">
-        <h2 id="h-sum">Dos formas de sumarte a la red</h2>
+        <h2 id="h-sum">Dos formas de sumarte a YouWater</h2>
         <p class="lead">Elegí la tuya y te preparamos el siguiente paso.</p>
       </div>
       <div class="aud">
@@ -257,7 +284,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
         </article>
         <article>
           <h3>Organizo eventos</h3>
-          <p>Agua de calidad gratis para tus asistentes. Coordinamos con vos los detalles de la entrega según tu evento.</p>
+          <p>Agua gratis para tus asistentes, patrocinada por una marca. Coordinamos con vos los detalles de la entrega según tu evento.</p>
           <a class="btn" href="#propuesta" data-go="organizador">Sumar mi evento</a>
         </article>
       </div>
@@ -273,27 +300,27 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
         </figure>
         <div class="quien-t">
           <h2 id="h-quien">A nadie le gusta la publicidad. Pero cuando hay sed, todos buscamos agua.</h2>
-          <p>La publicidad me interrumpía cuando trabajaba y también cuando quería desconectar un rato. Y siempre me hice la misma pregunta: ¿por qué le compraría a alguien que me molesta?</p>
+          <p>La publicidad nos interrumpe cuando trabajamos y también cuando queremos desconectar un rato. Y siempre nos hicimos la misma pregunta: ¿por qué le compraríamos a alguien que nos molesta?</p>
           <p>YouWater nace de esa pregunta. Primero tu marca da algo que la gente de verdad usa, y recién después habla. Es la diferencia entre que te toleren y que te agradezcan. Te acompañamos en cada paso, de la propuesta al reporte final.</p>
-          <a class="btn r" id="wa3" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Hablar conmigo</a>
+          <a class="btn r" id="wa3" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Hablar con YouWater</a>
         </div>
       </div>
 
       <div class="pilot">
         <div>
-          <h3>Estoy sumando mis primeras marcas</h3>
+          <h3>Estamos sumando nuestras primeras marcas</h3>
           <p>Si entrás ahora, armamos tu primera acción juntos y la seguimos de cerca de principio a fin.</p>
         </div>
         <a class="btn r" href="#propuesta" data-go="marca">Quiero ser de las primeras</a>
       </div>
 
       <div class="how">
-        <h3>Cómo trabajo</h3>
+        <h3>Cómo trabajamos</h3>
         <dl>
-          <div><dt>Cotización cerrada</dt><dd>Sin costos ocultos: el precio que te paso es el que pagás.</dd></div>
-          <div><dt>Fabricamos con tu confirmación</dt><dd>Producimos recién cuando confirmás y el organizador da el visto bueno.</dd></div>
+          <div><dt>Cotización cerrada</dt><dd>Sin costos ocultos: el precio que te pasamos es el que pagás.</dd></div>
+          <div><dt>Producimos con tu confirmación</dt><dd>Producimos recién cuando confirmás y el organizador da el visto bueno.</dd></div>
           <div><dt>Sin pisar exclusividades</dt><dd>Si el predio tiene un acuerdo de bebidas vigente, lo respetamos y no intervenimos.</dd></div>
-          <div><dt>Tus métricas son tuyas</dt><dd>El QR es de tu marca y lo medís con tus propias herramientas. Yo te entrego unidades entregadas y fotos de la acción.</dd></div>
+          <div><dt>Tus métricas son tuyas</dt><dd>El QR es de tu marca y lo medís con tus propias herramientas. Te entregamos las personas alcanzadas y fotos de la acción.</dd></div>
         </dl>
       </div>
     </div>
@@ -316,8 +343,8 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
       <h2 id="h-faq">Preguntas frecuentes</h2>
       <div class="faq">
         <details><summary>¿Cuánto cuesta ser sponsor en un evento?</summary><p>Depende de la cantidad de envases y del tipo de evento. Te pasamos una cotización cerrada, sin costos ocultos.</p></details>
-        <details><summary>¿Cómo mido los resultados?</summary><p>El QR del envase es tuyo, así que medís los escaneos con tus propias herramientas. Yo te entrego el reporte de unidades entregadas en mano y las fotos de la acción durante la jornada.</p></details>
-        <details><summary>¿Le cuesta algo al organizador del evento?</summary><p>No. El agua se financia 100% con los patrocinadores corporativos.</p></details>
+        <details><summary>¿Cómo mido los resultados?</summary><p>El QR del envase es tuyo, así que medís los escaneos con tus propias herramientas. Te entregamos el reporte de personas alcanzadas y las fotos de la acción durante la jornada.</p></details>
+        <details><summary>¿Le cuesta algo al organizador del evento?</summary><p>El modelo está pensado para que el agua la financien las marcas patrocinantes. Los detalles de cada evento los coordinamos con la organización.</p></details>
         <details><summary>¿Y si el predio tiene exclusividad de bebidas?</summary><p>Lo validamos antes con la organización. Si hay un acuerdo de exclusividad vigente, preferimos no intervenir.</p></details>
         <details><summary>¿Por qué el agua es gratis para los asistentes?</summary><p>Porque dar primero funciona: la persona recibe algo útil en el momento justo y asocia tu marca con hospitalidad sustentable.</p></details>
       </div>
@@ -328,7 +355,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 <footer>
   <div class="wrap foot">
     <span>YouWater Argentina. Publicidad B2B sustentable. Por Dylan Bordon.</span>
-    <a id="fwa" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+    <a id="fwa" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </footer>
 
@@ -360,7 +387,17 @@ const DEF={whatsapp:{number:"5491150462722"},flows:{
    {id:"exclusividad",l:"Exclusividad de bebidas",q:"¿Tenés exclusividad de bebidas con otro sponsor?",o:["Sí","No","No sé"]},
    {id:"sponsors",l:"Sponsors externos",q:"¿Aceptan sponsors que traigan su propio producto?",o:["Sí","Depende del caso"]},
    {id:"evento",l:"Evento",q:"¿Cómo se llama tu evento?",t:"text",p:"Nombre del evento",d:"mi evento"},
-   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un organizador"}]}
+   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un organizador"}]},
+ productor:{label:"Produzco envases, agua o etiquetas",
+  msg:"Hola YouWater, soy {nombre} de {empresa}. Producimos: {rubro}. Tirada mínima: {minimo}. Plazo de entrega: {plazo}. Marca de terceros: {marcablanca}. Habilitación para envasar agua: {habilitacion}.",
+  steps:[
+   {id:"rubro",l:"Producimos",q:"¿Qué producís?",o:["Envases de cartón","Envasado a façon","Etiquetas o impresión"]},
+   {id:"minimo",l:"Tirada mínima",q:"¿Cuál es tu tirada mínima?",o:["1.000 a 5.000","5.000 a 20.000","Más de 20.000"]},
+   {id:"plazo",l:"Plazo de entrega",q:"¿En cuánto tiempo entregás?",o:["Menos de 4 semanas","4 a 8 semanas"]},
+   {id:"marcablanca",l:"Marca de terceros",q:"¿Trabajás con marca de terceros?",o:["Sí","Depende de la cantidad"]},
+   {id:"habilitacion",l:"Habilitación para envasar agua",q:"¿Tenés habilitación para envasar agua?",o:["Sí","En trámite"]},
+   {id:"empresa",l:"Empresa",q:"¿Cómo se llama tu empresa?",t:"text",p:"Nombre de tu empresa",d:"mi empresa"},
+   {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un productor"}]}
 }};
 
 carton();
