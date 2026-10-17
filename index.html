@@ -49,10 +49,10 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
 .mark{display:inline-flex;align-items:center;gap:9px;font:900 1.7rem/1 var(--disp);letter-spacing:.01em;text-decoration:none}
 .mark::before{content:'';width:11px;height:11px;background:var(--signal);flex:none}
-.nav nav{display:flex;gap:28px;margin-left:auto}
-.nav nav a{font:600 .98rem var(--body);text-decoration:none;color:var(--muted)}
+.nav nav{display:flex;gap:clamp(14px,2vw,28px);margin-left:auto}
+.nav nav a{font:600 .98rem var(--body);text-decoration:none;color:var(--muted);white-space:nowrap}
 .nav nav a:hover{color:var(--ink)}
-@media(max-width:760px){.nav nav{display:none}}
+@media(max-width:1140px){.nav nav{display:none}}
 
 /* Hero */
 .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:min(100svh,840px);padding-top:64px}
@@ -76,7 +76,7 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .burger span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px}
 .scrim{position:fixed;inset:0;z-index:55;background:rgba(11,31,46,.6);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
 .scrim.open{opacity:1;visibility:visible;transition-delay:0s}
-.drawer{position:fixed;top:0;right:0;bottom:0;z-index:60;width:min(84vw,340px);display:flex;flex-direction:column;padding:72px 28px 32px;background:linear-gradient(180deg,rgba(11,31,46,.58) 0%,rgba(11,31,46,.9) 100%),url(fondo-agua-oscuro.webp) 72% center/cover no-repeat var(--ink);color:#fff;box-shadow:-12px 0 32px rgba(0,0,0,.35);transform:translateX(100%);visibility:hidden;transition:transform .42s cubic-bezier(.22,.8,.3,1),visibility 0s linear .42s}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:60;width:min(84vw,340px);display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;padding:72px 28px 32px;background:linear-gradient(180deg,rgba(11,31,46,.58) 0%,rgba(11,31,46,.9) 100%),url(fondo-agua-oscuro.webp) 72% center/cover no-repeat var(--ink);color:#fff;box-shadow:-12px 0 32px rgba(0,0,0,.35);transform:translateX(100%);visibility:hidden;transition:transform .42s cubic-bezier(.22,.8,.3,1),visibility 0s linear .42s}
 .drawer.open{transform:none;visibility:visible;transition-delay:0s}
 .drawer a{display:flex;align-items:center;gap:14px;margin-bottom:12px;padding:13px 14px;border:1px solid rgba(255,255,255,.2);border-left:4px solid var(--aqua);border-radius:4px;background:rgba(11,31,46,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;text-decoration:none;opacity:0;transform:translateX(18px);transition:opacity .35s ease,transform .35s ease,background-color .2s,border-color .2s,color .2s}
 .drawer.open a{opacity:1;transform:none;transition-delay:var(--d,0s),var(--d,0s),0s,0s,0s}
@@ -84,6 +84,7 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .drawer.open a:nth-of-type(2){--d:.18s}
 .drawer.open a:nth-of-type(3){--d:.24s}
 .drawer.open a:nth-of-type(4){--d:.30s}
+.drawer.open a:nth-of-type(5){--d:.36s}
 .drawer .ic{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:4px;background:rgba(191,227,238,.16);color:var(--aqua);transition:background-color .2s,color .2s}
 .drawer .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
 .drawer .tx b{font:900 clamp(1.35rem,5.6vw,1.65rem)/1.02 var(--disp);letter-spacing:.005em}
@@ -103,8 +104,8 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .drawer a.cta:hover .go,.drawer a.cta:focus-visible .go,.drawer a.cta:active .go{color:var(--signal)}
 .drawer-x{position:absolute;top:10px;right:14px;width:44px;height:44px;border:0;border-radius:4px;background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 html.lock{overflow:hidden}
-@media(max-width:760px){.burger{display:inline-flex}.nav-in .btn.sm{margin-left:auto}.nav-in{gap:8px}}
-@media(min-width:761px){.drawer,.scrim{display:none}}
+@media(max-width:1140px){.burger{display:inline-flex}.nav-in .btn.sm{margin-left:auto}.nav-in{gap:8px}}
+@media(min-width:1141px){.drawer,.scrim{display:none}}
 /* Botón flotante discreto: aparece al bajar y lleva arriba de todo */
 .totop{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid rgba(11,31,46,.25);border-radius:4px;background:rgba(255,255,255,.92);color:var(--ink);font:600 .85rem/1 var(--body);text-decoration:none;box-shadow:0 2px 10px rgba(11,31,46,.25);visibility:hidden;opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s}
 .totop.show{visibility:visible;opacity:.9;transform:none;transition-delay:0s}
@@ -271,6 +272,7 @@ footer{background:var(--ink);border-top:0}
       <a href="#patrocinadores">Para patrocinadores</a>
       <a href="#organizadores">Para organizadores de eventos</a>
       <a href="#quien">Quiénes somos</a>
+      <a href="#faq">Preguntas</a>
     </nav>
     <a class="btn r sm" id="contacto" href="#propuesta">Contacto</a>
     <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
@@ -297,6 +299,11 @@ footer{background:var(--ink);border-top:0}
   <a href="#quien">
     <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3z"/></svg></span>
     <span class="tx"><b>Quiénes somos</b><small>Conocé YouWater</small></span>
+    <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <a href="#faq">
+    <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17h.01"/></svg></span>
+    <span class="tx"><b>Preguntas frecuentes</b><small>Resolvé tus dudas rápido</small></span>
     <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
   </a>
   <a class="cta" href="#propuesta">
@@ -576,7 +583,7 @@ const badName=(()=>{
 
 (()=>{
   const b=$('#burger'),d=$('#drawer'),sc=$('#scrim'),x=$('#drawer-x');if(!b||!d||!sc||!x)return;
-  const mq=matchMedia('(max-width:760px)');
+  const mq=matchMedia('(max-width:1140px)');
   const set=(o,focus)=>{
     d.classList.toggle('open',o);sc.classList.toggle('open',o);
     b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');
@@ -602,8 +609,11 @@ fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({}))
 
 function links(C){
   const n=((C.whatsapp&&C.whatsapp.number)||'5491150462722').replace(/\D/g,'');
-  const m="Hola YouWater, me interesa conocer más sobre el sponsor en envases sustentables para eventos B2B.";
-  ['#wa2','#wa3'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
+  const M={
+    '#wa2':"Hola YouWater, vi la web y quiero patrocinar con mi marca el agua de un evento. ¿Me cuentan cómo funciona?",
+    '#wa3':"Hola YouWater, vi la web y quiero hablar con ustedes."
+  };
+  Object.keys(M).forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,M[s]);a.target='_blank';a.rel='noopener'}});
 }
 
 /* ---------- Titulares rotativos ----------
