@@ -221,7 +221,7 @@ html.lock{overflow:hidden}
 .faq details p{padding:0 44px 24px 0;color:var(--muted);max-width:58ch}
 @media(max-width:820px){.faq-g{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line);padding:40px 0 48px}
+footer{border-top:1px solid var(--line);padding:40px 0 calc(96px + env(safe-area-inset-bottom,0px))}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;color:var(--muted);font-size:.95rem}
 .foot a{color:var(--ink);font-weight:600;text-underline-offset:3px}
 
@@ -465,7 +465,6 @@ footer{background:var(--ink);border-top:0}
 <footer>
   <div class="wrap foot">
     <span>YouWater Argentina. Agua gratis para eventos, publicidad que se queda en la mano. Por Dylan Bordon.</span>
-    <a id="fwa" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </footer>
 
@@ -604,7 +603,7 @@ fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({}))
 function links(C){
   const n=((C.whatsapp&&C.whatsapp.number)||'5491150462722').replace(/\D/g,'');
   const m="Hola YouWater, me interesa conocer más sobre el sponsor en envases sustentables para eventos B2B.";
-  ['#wa2','#wa3','#fwa'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
+  ['#wa2','#wa3'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
 }
 
 /* ---------- Titulares rotativos ----------
