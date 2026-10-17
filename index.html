@@ -27,7 +27,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--signal);outline-offset:3px}
 h1,h2{font-family:var(--disp);font-weight:900;line-height:.94;letter-spacing:-.005em;text-wrap:balance}
 h1{font-size:clamp(2.2rem,3.7vw,3.9rem)}
-h2{font-size:clamp(2.5rem,4.8vw,4.2rem)}
+h2{font-size:clamp(2.5rem,4.8vw,4.2rem);line-height:1.06}
 h3{font:700 1.3rem/1.25 var(--body)}
 .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
 .sec{padding-block:clamp(72px,10vw,128px);scroll-margin-top:56px}
@@ -56,7 +56,7 @@ h3{font:700 1.3rem/1.25 var(--body)}
 
 /* Hero */
 .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:min(100svh,840px);padding-top:64px}
-.hero-l{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:clamp(44px,7vw,96px) clamp(28px,4vw,56px) clamp(44px,7vw,96px) max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
+.hero-l{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:clamp(16px,2.2vw,32px) clamp(28px,4vw,56px) clamp(44px,7vw,96px) max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
 .hero-l .lead{max-width:46ch}
 .note{font-size:.95rem;color:var(--muted)}
 .hero{background:linear-gradient(rgba(11,31,46,.5),rgba(11,31,46,.76)),url(fondo-agua-oscuro.webp) center/cover no-repeat var(--ink)}
@@ -69,6 +69,23 @@ h3{font:700 1.3rem/1.25 var(--body)}
 .rot.js>span{grid-area:1/1;align-self:end;opacity:0;transform:translateY(.18em);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
 .rot.js>span.on{opacity:1;transform:none;pointer-events:auto;transition:opacity 1.1s ease .7s,transform 1.1s ease .7s}
 .rot.js>span.out{opacity:0;transform:translateY(-.18em)}
+/* Bandas de título (organizadores e identidad): mismo rotador, sección propia */
+/* Etiqueta de sección ("Para patrocinadores", "Para organizadores de eventos", "Quiénes somos") */
+/* Botón flotante discreto: aparece al bajar y lleva arriba de todo */
+.totop{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid rgba(11,31,46,.25);border-radius:4px;background:rgba(255,255,255,.92);color:var(--ink);font:600 .85rem/1 var(--body);text-decoration:none;box-shadow:0 2px 10px rgba(11,31,46,.25);visibility:hidden;opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility 0s linear .25s}
+.totop.show{visibility:visible;opacity:.9;transform:none;transition-delay:0s}
+.totop:hover{opacity:1;background:#fff}
+.kick{font:700 .85rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:inherit}
+.kick::before{content:'';display:inline-block;width:9px;height:9px;background:var(--signal);margin-right:10px}
+.hero-l .kick{margin-bottom:-8px}
+.why-t{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+#h-org{font-size:clamp(2.2rem,3.8vw,3.6rem)}
+.qhead{display:flex;flex-direction:column;gap:18px;max-width:960px;margin-bottom:clamp(36px,5vw,64px)}
+.qhead h2{font-size:clamp(2.2rem,4vw,3.6rem)}
+.quien-t h3{font:900 clamp(1.9rem,3vw,2.6rem)/1 var(--disp);text-wrap:balance}
+.sec.dark .why dl{border-top-color:rgba(255,255,255,.55)}
+.sec.dark .why dl div{border-bottom-color:rgba(255,255,255,.18)}
+.sec.dark .why dd{color:#B9CBD8}
 .hero-l .lead{color:#D6E3EC}
 .hero-l .note{color:#B9CBD8}
 .hero-l .btn:not(.r){border-color:#fff;color:#fff}
@@ -181,7 +198,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px}
 .stage .chip[aria-pressed="true"]{background:#fff;border-color:#fff;color:var(--ink)}
 .stage .mock{color:#A9BECE}
 .sec.dark{background:var(--ink);color:#fff}
-#sumate{background:linear-gradient(rgba(11,31,46,.84),rgba(11,31,46,.93)),url(fondo-publico.webp) center/cover no-repeat var(--ink)}
+#organizadores{background:linear-gradient(rgba(11,31,46,.84),rgba(11,31,46,.93)),url(fondo-publico.webp) center/cover no-repeat var(--ink)}
 .sec.dark .lead,.sec.dark .aud p{color:#B9CBD8}
 .sec.dark .aud{border-top-color:rgba(255,255,255,.55)}
 .sec.dark .aud article{border-bottom-color:rgba(255,255,255,.18)}
@@ -207,18 +224,18 @@ footer{background:var(--ink);border-top:0}
   <div class="nav-in">
     <a class="mark" href="#top" aria-label="YouWater, ir al inicio">YOUWATER</a>
     <nav aria-label="Principal">
-      <a href="#como">Cómo funciona</a>
-      <a href="#sumate">Para quién</a>
+      <a href="#patrocinadores">Para patrocinadores</a>
+      <a href="#organizadores">Para organizadores de eventos</a>
       <a href="#quien">Quiénes somos</a>
-      <a href="#faq">Preguntas</a>
     </nav>
-    <a class="btn r sm" id="wa" href="https://wa.me/5491150462722?text=Hola%20YouWater%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20sponsor%20en%20envases%20sustentables%20para%20eventos%20B2B." target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn r sm" id="contacto" href="#propuesta">Contacto</a>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero" aria-labelledby="h1">
+  <section class="hero" id="patrocinadores" aria-labelledby="h1">
     <div class="hero-l">
+      <p class="kick">Para patrocinadores: pymes y marcas</p>
       <h1 id="h1"><span class="rot" id="rot">Tu marca en la mano de tus futuros clientes</span></h1>
       <p class="lead">Agua 100% gratis para el organizador y sus asistentes. La patrocina tu pyme y tu propuesta queda en la palma de la mano de tus potenciales clientes, con tu QR en el envase.</p>
       <div class="row">
@@ -250,8 +267,9 @@ footer{background:var(--ink);border-top:0}
   <section class="sec w" id="como" aria-labelledby="h-como">
     <div class="wrap">
       <div class="head">
-        <h2 id="h-como">Agua gratis para todos. Atención para tu marca.</h2>
-        <p class="lead">El organizador no paga nada, los asistentes se hidratan gratis y tu propuesta queda en su mano. Así funciona.</p>
+        <p class="kick">Para patrocinadores · Cómo funciona</p>
+        <h2 id="h-como">Patrocinar el agua de un evento en 3 pasos</h2>
+        <p class="lead">Vos elegís el evento y definís tu propuesta. Nosotros nos ocupamos del resto.</p>
       </div>
       <ol class="steps">
         <li>
@@ -275,52 +293,17 @@ footer{background:var(--ink);border-top:0}
 
   <section class="sec" aria-labelledby="h-why">
     <div class="wrap why">
-      <h2 id="h-why">Un logo no convence a nadie. Una oferta que conviene, sí.</h2>
+      <div class="why-t">
+        <p class="kick">Para patrocinadores · Por qué funciona</p>
+        <h2 id="h-why">Un logo no convence a nadie. Una oferta que conviene, sí.</h2>
+      </div>
       <dl>
         <div><dt>Rompe el hielo sin invadir</dt><dd>Sin stands insistentes ni volantes que terminan en la basura. Un envase con diseño inteligente que la persona acepta, usa y comenta.</dd></div>
         <div><dt>Una propuesta, no solo un logo</dt><dd>El asistente recibe agua gratis y tu propuesta en la mano; vos decidís qué ofrecerle. Si la escanea, lo medís con tu QR, y al final del evento te pasamos las unidades entregadas y fotos.</dd></div>
-        <div><dt>100% gratis para el evento</dt><dd>La hidratación de VIPs y asistentes deja de ser un costo para el organizador: la patrocinan pymes y marcas que ocupan el espacio en el envase.</dd></div>
         <div><dt>En la mano del decisor, durante horas</dt><dd>El envase acompaña a la persona correcta mientras escucha, charla y recorre el evento, y tu propuesta está en su mano todo ese tiempo.</dd></div>
       </dl>
     </div>
-  </section>
-
-  <section class="sec dark" id="sumate" aria-labelledby="h-sum">
     <div class="wrap">
-      <div class="head">
-        <h2 id="h-sum">Dos formas de ganar con YouWater</h2>
-        <p class="lead">Elegí la tuya y te preparamos el siguiente paso.</p>
-      </div>
-      <div class="aud">
-        <article>
-          <h3>Soy una pyme o marca</h3>
-          <p>Patrocinás el agua y tu propuesta queda en la palma de la mano del decisor correcto durante todo el evento. Con tu QR podés medir los escaneos y al final recibís el reporte de unidades entregadas y fotos del evento.</p>
-          <a class="btn r" href="#propuesta" data-go="marca">Armar mi propuesta</a>
-        </article>
-        <article>
-          <h3>Organizo eventos</h3>
-          <p>Hidratación 100% gratis para tus VIPs y asistentes, sin costo para vos: la patrocinan pymes que quieren conocer a tus asistentes. Coordinamos con vos los detalles de la entrega según tu evento.</p>
-          <a class="btn" href="#propuesta" data-go="organizador">Sumar mi evento</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec soft" id="quien" aria-labelledby="h-quien">
-    <div class="wrap">
-      <div class="quien">
-        <figure class="face">
-          <img src="dylan.jpg" width="720" height="720" loading="lazy" alt="Retrato de Dylan Bordon, fundador de YouWater">
-          <figcaption>Dylan Bordon, fundador de YouWater</figcaption>
-        </figure>
-        <div class="quien-t">
-          <h2 id="h-quien">A nadie le gusta la publicidad. A todos nos gusta una buena oferta.</h2>
-          <p>La publicidad nos interrumpe cuando trabajamos y también cuando queremos desconectar un rato. Y siempre nos hicimos la misma pregunta: ¿por qué le compraríamos a alguien que nos molesta?</p>
-          <p>YouWater nace de esa pregunta. Primero tu marca da algo que la gente de verdad usa, y después le hace una oferta que conviene. El organizador tiene agua gratis, el asistente una propuesta en la mano y la pyme un lugar donde presentarse sin interrumpir. Es la diferencia entre que te toleren y que te agradezcan. Te acompañamos de la propuesta al reporte final.</p>
-          <a class="btn r" id="wa3" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Hablar con YouWater</a>
-        </div>
-      </div>
-
       <div class="pilot">
         <div>
           <h3>Estamos sumando nuestras primeras marcas</h3>
@@ -328,13 +311,50 @@ footer{background:var(--ink);border-top:0}
         </div>
         <a class="btn r" href="#propuesta" data-go="marca">Quiero ser de las primeras</a>
       </div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="organizadores" aria-labelledby="h-org">
+    <div class="wrap why">
+      <div class="why-t">
+        <p class="kick">Para organizadores de eventos</p>
+        <h2 id="h-org"><span class="rot" id="rot2">Tu evento con agua gratis para VIPs y asistentes, patrocinada por pymes.</span></h2>
+        <p class="lead">Agua 100% gratis para tus VIPs y asistentes, sin costo para vos.</p>
+        <a class="btn r" href="#propuesta" data-go="organizador">Sumar mi evento</a>
+      </div>
+      <dl>
+        <div><dt>100% gratis para tu evento</dt><dd>La hidratación de VIPs y asistentes deja de ser un costo para vos: la patrocinan pymes y marcas que ocupan el espacio en el envase.</dd></div>
+        <div><dt>Pymes que apoyan tu evento</dt><dd>Los patrocinadores son pymes que quieren conocer a tus asistentes. Tu gente se hidrata gratis y descubre propuestas útiles para su negocio.</dd></div>
+        <div><dt>Coordinamos con vos</dt><dd>Definimos juntos los detalles de la entrega según tu evento. Producimos recién cuando vos das el visto bueno.</dd></div>
+        <div><dt>Sin pisar exclusividades</dt><dd>Si el predio tiene un acuerdo de bebidas vigente, lo respetamos y no intervenimos.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec soft" id="quien" aria-labelledby="h-id">
+    <div class="wrap">
+      <div class="qhead">
+        <p class="kick">Quiénes somos</p>
+        <h2 id="h-id"><span class="rot" id="rot3">YouWater: agua gratis en eventos, con la propuesta de una pyme en cada envase.</span></h2>
+      </div>
+      <div class="quien">
+        <figure class="face">
+          <img src="dylan.jpg" width="720" height="720" loading="lazy" alt="Retrato de Dylan Bordon, fundador de YouWater">
+          <figcaption>Dylan Bordon, fundador de YouWater</figcaption>
+        </figure>
+        <div class="quien-t">
+          <h3>A nadie le gusta la publicidad. A todos nos gusta una buena oferta.</h3>
+          <p>La publicidad nos interrumpe cuando trabajamos y también cuando queremos desconectar un rato. Y siempre nos hicimos la misma pregunta: ¿por qué le compraríamos a alguien que nos molesta?</p>
+          <p>YouWater nace de esa pregunta. Primero tu marca da algo que la gente de verdad usa, y después le hace una oferta que conviene. El organizador tiene agua gratis, el asistente una propuesta en la mano y la pyme un lugar donde presentarse sin interrumpir. Es la diferencia entre que te toleren y que te agradezcan. Te acompañamos de la propuesta al reporte final.</p>
+          <a class="btn r" id="wa3" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Hablar con YouWater</a>
+        </div>
+      </div>
 
       <div class="how">
         <h3>Cómo trabajamos</h3>
         <dl>
           <div><dt>Cotización cerrada</dt><dd>Sin costos ocultos para la marca: el precio que te pasamos es el que pagás. Para el organizador, el costo es cero.</dd></div>
           <div><dt>Producimos con tu confirmación</dt><dd>Producimos recién cuando confirmás y el organizador da el visto bueno.</dd></div>
-          <div><dt>Sin pisar exclusividades</dt><dd>Si el predio tiene un acuerdo de bebidas vigente, lo respetamos y no intervenimos.</dd></div>
           <div><dt>Tus métricas son tuyas</dt><dd>El QR es de tu marca y lo medís con tus propias herramientas. Te entregamos las personas alcanzadas y fotos de la acción.</dd></div>
         </dl>
       </div>
@@ -373,6 +393,11 @@ footer{background:var(--ink);border-top:0}
     <a id="fwa" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </footer>
+
+<a class="totop" id="totop" href="#top" aria-label="Volver al inicio">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  Volver al inicio
+</a>
 
 <script src="bottle.js"></script>
 <script>
@@ -415,6 +440,7 @@ const DEF={whatsapp:{number:"5491150462722"},flows:{
    {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un productor"}]}
 }};
 
+(()=>{const t=$('#totop');if(!t)return;const f=()=>t.classList.toggle('show',window.scrollY>600);f();addEventListener('scroll',f,{passive:true})})();
 headline();
 carton();
 fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({})).then(c=>{const C={...DEF,...c};links(C);sim(C)});
@@ -422,71 +448,75 @@ fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({}))
 function links(C){
   const n=((C.whatsapp&&C.whatsapp.number)||'5491150462722').replace(/\D/g,'');
   const m="Hola YouWater, me interesa conocer más sobre el sponsor en envases sustentables para eventos B2B.";
-  ['#wa','#wa2','#wa3','#fwa'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
+  ['#wa2','#wa3','#fwa'].forEach(s=>{const a=$(s);if(a){a.href=waUrl(n,m);a.target='_blank';a.rel='noopener'}});
 }
 
-/* ---------- Titular rotativo ----------
-   Rota solo, siempre en este orden: marca/pyme -> organizador -> identidad -> marca...
-   Dentro de cada grupo elige al azar y no repite hasta agotar todas las frases del grupo. */
+/* ---------- Titulares rotativos ----------
+   Hay 3 titulares, cada uno en su propia sección y con frases exclusivas de su grupo:
+   marca -> cabecera principal (Para patrocinadores) | organizador -> sección "Para organizadores de eventos" | identidad -> sección "Quiénes somos".
+   Cada uno elige al azar dentro de su grupo y no repite hasta agotar todas sus frases.
+   Solo rota mientras está a la vista. */
 function headline(){
-  const el=$('#rot'),h=$('#h1');if(!el||!h)return;
   const MS=5000; /* tiempo entre frases (ms) */
-  const G=[
-    /* 1. Para la marca o pyme */
-    [
-      "Patrocinás el agua y tu propuesta queda en la mano de tus potenciales clientes.",
-      "Elegís el evento donde están tus potenciales clientes y patrocinás su agua.",
+  const G={
+    /* SECCIÓN 1 · Patrocinadores: pymes y marcas (cabecera principal) */
+    marca:[
+      "Elegís el evento de tu cliente ideal y patrocinás el agua que todos toman.",
+      "Tu marca presente en el evento sin interrumpir a nadie: vos invitás el agua.",
       "Un volante se tira. Tu propuesta en un envase de agua se queda en la mano.",
-      "Tu marca no interrumpe: invita el agua y presenta su propuesta en el envase.",
-      "Invitá agua a tus potenciales clientes, con tu propuesta y tu QR en el envase.",
+      "Tu propuesta y tu QR en cada envase: presencia de marca que podés medir.",
+      "Invitá agua en el evento y presentate con tu propuesta, sin invadir a nadie.",
       "Más que un logo: agua patrocinada con tu propuesta en la palma de la mano."
     ],
-    /* 2. Para el organizador (pymes que apoyan, no un sponsor que paga) */
-    [
+    /* SECCIÓN 2 · Organizadores de congresos, ferias y eventos B2B */
+    organizador:[
       "Tu evento con agua gratis para VIPs y asistentes, patrocinada por pymes.",
-      "¿Organizás un congreso o feria? Pymes patrocinan el agua de todos tus asistentes.",
-      "Hidratación sin costo para tu evento, de la mano de pymes que te apoyan.",
-      "Tus asistentes se hidratan gratis y descubren propuestas de pymes para su negocio.",
-      "Sin presupuesto de agua: pymes apoyan tu evento patrocinando la hidratación."
+      "¿Organizás un congreso o una feria? El agua de tus asistentes sale gratis.",
+      "Ahorrá en hidratación: pymes que apoyan tu evento patrocinan el agua.",
+      "Agua 100% gratis para tus asistentes, gracias a pymes que apoyan tu evento.",
+      "Tus asistentes se hidratan gratis y descubren propuestas de pymes para su negocio."
     ],
-    /* 3. Identidad de YouWater */
-    [
+    /* SECCIÓN 3 · Identidad de YouWater (propuesta de valor global) */
+    identidad:[
       "YouWater: agua gratis en eventos, con la propuesta de una pyme en cada envase.",
-      "Publicidad B2B en un envase de agua gratis: tu propuesta en su mano.",
-      "Agua gratis para el evento, patrocinada por pymes que se presentan en el envase.",
-      "Dar primero, vender después: agua gratis y tu propuesta en la palma de la mano.",
-      "Tu propuesta irresistible en la palma de la mano del cliente, en cada evento."
+      "Tu propuesta irresistible en la palma de la mano del cliente, en cada evento.",
+      "Publicidad B2B que no invade: llega en un envase de agua gratis, en la mano.",
+      "Hidratación gratis para el evento y presencia sin invadir para cada pyme.",
+      "Dar primero, vender después: agua gratis y tu propuesta en la palma de la mano."
     ]
-  ];
+  };
   const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-  el.textContent='';
-  const S=G.map(g=>g.map(t=>{const x=document.createElement('span');x.textContent=t;x.setAttribute('aria-hidden','true');el.appendChild(x);return x}));
-  el.classList.add('js');
-  const Q=G.map(()=>[]),last=G.map(()=>-1);
-  let type=-1,cur=null,tm,paused=false;
-  const pick=t=>{
-    const q=Q[t];
-    if(!q.length){
-      q.push(...sh(G[t].map((_,i)=>i)));
-      /* al reiniciar el grupo, la primera no puede ser igual a la última mostrada */
-      if(q.length>1&&q[q.length-1]===last[t])[q[0],q[q.length-1]]=[q[q.length-1],q[0]];
-    }
-    last[t]=q.pop();return last[t];
+  const rotator=(rotSel,hostSel,list)=>{
+    const el=$(rotSel),h=$(hostSel);if(!el||!h)return;
+    el.textContent='';
+    const S=list.map(t=>{const x=document.createElement('span');x.textContent=t;x.setAttribute('aria-hidden','true');el.appendChild(x);return x});
+    el.classList.add('js');
+    let q=[],last=-1,cur=null,tm,paused=false,vis=true;
+    const pick=()=>{
+      if(!q.length){
+        q=sh(list.map((_,i)=>i));
+        /* al reiniciar la tanda, la primera no puede ser igual a la última mostrada */
+        if(q.length>1&&q[q.length-1]===last)[q[0],q[q.length-1]]=[q[q.length-1],q[0]];
+      }
+      last=q.pop();return last;
+    };
+    const show=()=>{
+      const nx=S[pick()];
+      if(cur){const o=cur;o.classList.remove('on');o.classList.add('out');o.setAttribute('aria-hidden','true');setTimeout(()=>o.classList.remove('out'),900)}
+      nx.classList.add('on');nx.removeAttribute('aria-hidden');cur=nx;
+    };
+    show();
+    const tick=()=>{if(!paused&&vis&&!document.hidden)show()};
+    const start=()=>{clearInterval(tm);tm=setInterval(tick,MS)};
+    h.addEventListener('mouseenter',()=>paused=true);
+    h.addEventListener('mouseleave',()=>{paused=false;start()});
+    document.addEventListener('visibilitychange',start);
+    if('IntersectionObserver' in window){new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis)start()},{threshold:.25}).observe(h)}
+    start();
   };
-  const show=()=>{
-    type=(type+1)%G.length;
-    const nx=S[type][pick(type)];
-    if(cur){const o=cur;o.classList.remove('on');o.classList.add('out');o.setAttribute('aria-hidden','true');setTimeout(()=>o.classList.remove('out'),900)}
-    nx.classList.add('on');nx.removeAttribute('aria-hidden');cur=nx;
-  };
-  show();
-  /* Rota siempre. Con "reducir movimiento" se mantiene solo el desvanecido, sin desplazamiento (ver CSS). */
-  const tick=()=>{if(!paused&&!document.hidden)show()};
-  const start=()=>{clearInterval(tm);tm=setInterval(tick,MS)};
-  h.addEventListener('mouseenter',()=>paused=true);
-  h.addEventListener('mouseleave',()=>{paused=false;start()});
-  document.addEventListener('visibilitychange',start);
-  start();
+  rotator('#rot','#h1',G.marca);
+  rotator('#rot2','#h-org',G.organizador);
+  rotator('#rot3','#h-id',G.identidad);
 }
 
 /* ---------- Envase 3D ---------- */
