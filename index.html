@@ -607,6 +607,8 @@ const badName=(()=>{
   mq.addEventListener('change',()=>{if(!mq.matches)set(false,false)});
 })();
 (()=>{const t=$('#totop');if(!t)return;const f=()=>t.classList.toggle('show',window.scrollY>600);f();addEventListener('scroll',f,{passive:true})})();
+/* Subir al inicio sin dejar "#top" en la dirección (el href queda como respaldo si no carga el JS) */
+(()=>{const up=e=>{e.preventDefault();window.scrollTo({top:0});if(location.hash)history.replaceState(null,'',location.pathname+location.search);const m=$('.mark');if(m)m.focus({preventScroll:true})};['#totop','.mark'].forEach(q=>{const el=$(q);if(el)el.addEventListener('click',up)})})();
 headline();
 carton();
 fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({})).then(c=>{const C={...DEF,...c};links(C);sim(C)});
