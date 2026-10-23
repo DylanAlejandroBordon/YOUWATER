@@ -128,22 +128,9 @@ html.lock{overflow:hidden}
 .hero-l .btn:not(.r){border-color:#fff;color:#fff}
 .hero-l .btn:not(.r):hover{background:#fff;color:var(--ink)}
 .stage{background:var(--aqua);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px var(--pad)}
-.brandin{display:flex;flex-direction:column;gap:6px;width:100%;max-width:380px;font:600 .95rem var(--body)}
-.brandin input{height:52px;padding:0 16px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font:700 1.15rem var(--body);width:100%}
-.brandin input::placeholder{color:#6b7f8f;font-weight:500}
-.brandin input:focus-visible{outline-offset:2px}
-.brandin{position:relative}
-.brandin .bad{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:3;padding:8px 12px;border-radius:4px;background:var(--signal);color:#fff;font:600 .9rem/1.3 var(--body);box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.brandin .bad[hidden]{display:none}
-.brandin input[aria-invalid="true"]{border-color:var(--signal)}
 #scene{position:relative;width:100%;max-width:520px;height:clamp(400px,50vw,520px);cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 #scene:active{cursor:grabbing}
 #gl{position:absolute;inset:0}#gl canvas{display:block;width:100%;height:100%}
-.cap{font:600 .98rem var(--body);min-height:1.5em}
-.seg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.chip{min-height:40px;padding:0 14px;border:1.5px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:600 .92rem var(--body);cursor:pointer;transition:background-color .15s,color .15s}
-.chip:hover{background:rgba(11,31,46,.1)}
-.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
 .mock{font-size:.85rem;color:#2c4558;text-align:center}
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.hero-l{padding:44px var(--pad) 48px}}
 
@@ -194,10 +181,7 @@ html.lock{overflow:hidden}
 
 /* Quién está detrás */
 .sec.soft{background:var(--aqua-soft)}
-.quien{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,6vw,88px);align-items:center}
-.face{margin:0;max-width:420px;background:#131E3A;border-radius:4px;overflow:hidden}
-.face img{display:block;width:100%;height:auto}
-.face figcaption{padding:14px 18px;color:#fff;font:600 .95rem var(--body)}
+.quien{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,6vw,88px);align-items:center}
 .quien-t{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
 .quien-t h2{font-size:clamp(2.5rem,4.6vw,4rem)}
 .quien-t p{max-width:52ch;font-size:1.1rem;color:var(--muted)}
@@ -211,7 +195,7 @@ html.lock{overflow:hidden}
 .how dl div{padding:22px 0;border-bottom:1px solid var(--line)}
 .how dt{font:700 1.2rem/1.3 var(--body);margin-bottom:4px}
 .how dd{color:var(--muted);max-width:52ch}
-@media(max-width:820px){.quien{grid-template-columns:1fr}.face{max-width:320px}.how dl{grid-template-columns:1fr}}
+@media(max-width:820px){.quien{grid-template-columns:1fr}.how dl{grid-template-columns:1fr}}
 
 /* Preguntas */
 .faq-g{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,6vw,88px);align-items:start}
@@ -263,6 +247,18 @@ footer{background:var(--ink);border-top:0}
   .scrim{transition:opacity .3s ease,visibility 0s linear .3s!important}
   .scrim.open{transition-delay:0s!important}
 }
+
+.quien-t{max-width:760px}
+.fmts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(40px,6vw,72px)}
+.fmt{background:var(--white);border:2px solid var(--ink);border-radius:4px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:20px}
+.fmt .sz{font:900 clamp(3.6rem,6.4vw,5.6rem)/.9 var(--disp);color:var(--signal)}
+.fmt h3{margin-top:-8px}
+.fmt dl div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-top:1px solid var(--line)}
+.fmt dt{color:var(--muted)}
+.fmt dd{font-weight:700;text-align:right;max-width:26ch}
+.fmt .btn{align-self:flex-start;margin-top:auto}
+.fmt-n{margin-top:22px;font-size:.95rem;color:var(--muted)}
+@media(max-width:820px){.fmts{grid-template-columns:1fr}.fmt dl div{flex-direction:column;gap:2px}.fmt dd{text-align:left;max-width:none}}
 </style>
 <link rel="preload" as="image" href="fondo-hero.webp" type="image/webp">
 </head>
@@ -273,6 +269,7 @@ footer{background:var(--ink);border-top:0}
     <a class="mark" href="#top" aria-label="YouWater, ir al inicio">YOUWATER</a>
     <nav aria-label="Principal">
       <a href="#patrocinadores">Para patrocinadores</a>
+      <a href="#envase">El envase</a>
       <a href="#organizadores">Para organizadores de eventos</a>
       <a href="#quien">Quiénes somos</a>
       <a href="#faq">Preguntas</a>
@@ -292,6 +289,11 @@ footer{background:var(--ink);border-top:0}
   <a href="#patrocinadores">
     <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/></svg></span>
     <span class="tx"><b>Para patrocinadores</b><small>Tu marca en cada envase</small></span>
+    <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <a href="#envase">
+    <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l1 4v14H6V7z"/><path d="M6 7h12"/></svg></span>
+    <span class="tx"><b>El envase</b><small>Formatos, mínimos y plazos</small></span>
     <svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
   </a>
   <a href="#organizadores">
@@ -330,20 +332,8 @@ footer{background:var(--ink);border-top:0}
     </div>
 
     <div class="stage">
-      <label class="brandin">Probá con el nombre de tu marca
-        <input id="brand" maxlength="16" placeholder="Tu marca" autocomplete="off" aria-describedby="brandmsg" aria-invalid="false">
-        <span class="bad" id="brandmsg" role="alert" hidden>Ese nombre no está disponible. Probá con el nombre de tu marca.</span>
-      </label>
       <div id="scene" tabindex="0" role="group" aria-label="Maqueta 3D del envase con tu marca. Arrastrá para girarlo o usá las flechas del teclado.">
         <div id="gl" aria-hidden="true"></div>
-      </div>
-      <p class="cap" id="fl">Frente</p>
-      <div class="seg" role="group" aria-label="Elegir cara del envase">
-        <button class="chip" type="button" data-f="0" aria-pressed="true">Frente</button>
-        <button class="chip" type="button" data-f="2" aria-pressed="false">Dorso</button>
-        <button class="chip" type="button" data-f="1" aria-pressed="false">Lateral YouWater</button>
-        <button class="chip" type="button" data-f="3" aria-pressed="false">Lateral legal</button>
-        <button class="chip" type="button" id="au" aria-pressed="false">Girar solo</button>
       </div>
       <p class="mock">Maqueta conceptual. El diseño final lo definimos con vos.</p>
     </div>
@@ -399,6 +389,43 @@ footer{background:var(--ink);border-top:0}
     </div>
   </section>
 
+  <section class="sec soft" id="envase" aria-labelledby="h-env">
+    <div class="wrap">
+      <div class="head">
+        <p class="kick">Para patrocinadores · El envase</p>
+        <h2 id="h-env">Dos formatos para elegir según tu evento</h2>
+        <p class="lead">Envases de cartón con tapa, con tu marca, tu propuesta y tu QR impresos. Elegí el tamaño y nosotros nos ocupamos de producirlo.</p>
+      </div>
+      <div class="fmts">
+        <article class="fmt">
+          <p class="sz" aria-hidden="true">500 ml</p>
+          <h3>Formato personal</h3>
+          <dl>
+            <div><dt>Envase</dt><dd>Cartón con tapa, fácil de llevar en la mano</dd></div>
+            <div><dt>Pedido mínimo</dt><dd>Desde 65.000 unidades</dd></div>
+            <div><dt>Plazo estimado</dt><dd>7 a 9 semanas desde que aprobás el diseño</dd></div>
+            <div><dt>Impresión</dt><dd>Tu marca, tu propuesta y tu QR en las 4 caras</dd></div>
+            <div><dt>Ideal para</dt><dd>Ferias, congresos y eventos de varios días</dd></div>
+          </dl>
+          <a class="btn r" href="#propuesta" data-go="marca">Cotizar 500 ml</a>
+        </article>
+        <article class="fmt">
+          <p class="sz" aria-hidden="true">1 L</p>
+          <h3>Formato compartido</h3>
+          <dl>
+            <div><dt>Envase</dt><dd>Cartón con tapa y más superficie para tu marca</dd></div>
+            <div><dt>Pedido mínimo</dt><dd>Desde 80.000 unidades</dd></div>
+            <div><dt>Plazo estimado</dt><dd>7 a 9 semanas desde que aprobás el diseño</dd></div>
+            <div><dt>Impresión</dt><dd>Tu marca, tu propuesta y tu QR en las 4 caras</dd></div>
+            <div><dt>Ideal para</dt><dd>Stands, mesas de acreditación y puntos fijos de entrega</dd></div>
+          </dl>
+          <a class="btn r" href="#propuesta" data-go="marca">Cotizar 1 L</a>
+        </article>
+      </div>
+      <p class="fmt-n">Cantidades y plazos orientativos: los confirmamos en tu cotización cerrada.</p>
+    </div>
+  </section>
+
   <section class="sec dark" id="organizadores" aria-labelledby="h-org">
     <div class="wrap why">
       <div class="why-t">
@@ -423,10 +450,6 @@ footer{background:var(--ink);border-top:0}
         <h2 id="h-id"><span class="rot" id="rot3">YouWater: agua gratis en eventos, con la propuesta de una pyme en cada envase.</span></h2>
       </div>
       <div class="quien">
-        <figure class="face">
-          <img src="dylan.jpg" width="720" height="720" loading="lazy" alt="Retrato de Dylan Bordon, fundador de YouWater">
-          <figcaption>Dylan Bordon, fundador de YouWater</figcaption>
-        </figure>
         <div class="quien-t">
           <h3>A nadie le gusta la publicidad. A todos nos gusta una buena oferta.</h3>
           <p>La publicidad nos interrumpe cuando trabajamos y también cuando queremos desconectar un rato. Y siempre nos hicimos la misma pregunta: ¿por qué le compraríamos a alguien que nos molesta?</p>
@@ -463,6 +486,8 @@ footer{background:var(--ink);border-top:0}
       <h2 id="h-faq">Preguntas frecuentes</h2>
       <div class="faq">
         <details><summary>¿Cuánto cuesta ser sponsor en un evento?</summary><p>Depende de la cantidad de envases y del tipo de evento. Te pasamos una cotización cerrada, sin costos ocultos. Tu inversión es lo que hace gratis el agua para todo el evento.</p></details>
+        <details><summary>¿Qué formatos hay y cuál es el pedido mínimo?</summary><p>Trabajamos con envases de cartón con tapa de 500 ml y de 1 L. El pedido mínimo ronda las 65.000 unidades en 500 ml y las 80.000 en 1 L. Lo confirmamos en tu cotización cerrada.</p></details>
+        <details><summary>¿Cuánto tarda la producción?</summary><p>Entre 7 y 9 semanas desde que aprobás el diseño del envase. Por eso conviene empezar con tiempo antes de la fecha del evento.</p></details>
         <details><summary>¿Cómo mido los resultados?</summary><p>El QR del envase es tuyo, así que medís los escaneos con tus propias herramientas. Te entregamos el reporte de personas alcanzadas y las fotos de la acción durante la jornada.</p></details>
         <details><summary>¿Le cuesta algo al organizador del evento?</summary><p>No. El agua es 100% gratis para el organizador y sus asistentes: la patrocinan pymes y marcas que ocupan el espacio en el envase. Los detalles de cada evento los coordinamos con la organización.</p></details>
         <details><summary>¿Y si el predio tiene exclusividad de bebidas?</summary><p>Lo validamos antes con la organización. Si hay un acuerdo de exclusividad vigente, preferimos no intervenir.</p></details>
@@ -524,66 +549,6 @@ const DEF={whatsapp:{number:"5491150462722"},flows:{
    {id:"empresa",l:"Empresa",q:"¿Cómo se llama tu empresa?",t:"text",p:"Nombre de tu empresa",d:"mi empresa"},
    {id:"nombre",l:"Nombre",q:"Última: ¿cómo te llamás?",t:"text",p:"Tu nombre",d:"un productor"}]}
 }};
-
-/* Filtro de nombres: normaliza el texto (acentos, números por letras, símbolos, letras repetidas, letras separadas) y lo compara con tres listas. */
-const badName=(()=>{
-  const fold=s=>s.toLowerCase().replace(/ñ/g,'ɲ').normalize('NFKD').replace(/[\u0300-\u036f\u200b-\u200d\ufeff]/g,'');
-  /* cada letra acepta repeticiones ("puuuta"); las letras dobles reales (rr, gg) exigen al menos dos */
-  const rx=t=>fold(t).replace(/[^a-zɲ]/g,'').replace(/(.)\1*/g,(m,c)=>c+(m.length>1?`{${m.length},}`:'+'));
-  const list=s=>s.split(/\s+/).filter(Boolean).map(rx).join('|');
-
-  /* A: se bloquea si aparece dentro de una palabra (términos largos y poco ambiguos) */
-  const A=new RegExp(list(`
-    hitler himmler goebbels goering mengele eichmann heydrich mussolini neonazi nazism nazist nazismo nazista swastika svastica esvastica hakenkreuz wehrmacht holohoax
-    fuck bitch asshole asshat bullshit shithead dipshit jackass dumbass dickhead cocksucker motherfuck douchebag bollocks jerkoff blowjob handjob cumshot orgasm masturb hentai
-    nigger nigga faggot tranny shemale wetback towelhead raghead idiot stupid
-    lolicon shotacon pedofil pedophil
-    mierd carajo pelotud bolud gilipollas pendej chingad chingon hijueput hijoput conchud culiad culiao puñeta mamaguevo mamabicho chupapij putamadr conchetum conchatum conchadetum
-    imbecil estupid mogolico mongolico maricon cabecitanegra
-  `));
-
-  /* B: se bloquea solo si es la palabra completa (para no frenar "cálculo", "computadora", "Morón", "peculiar"...) */
-  const B=new RegExp('^(?:'+list(`
-    nazi heil reich kampf nsdap skinhead fascista fascist aryan
-    puta puto putita putito putazo putear hdp ctm csm ptm lpqtp lpqlp lpmqtp ctmre ctmr
-    culo culito culero culera culear culeo orto ojete pija pijudo poronga verga vergazo chota pene
-    sexo sex porno porn tetas teta tetona
-    cagon cagona cagar cagada cagado mamon mamona forro forra forrazo tarado tarada pajero pajera
-    sorete bosta garca garchar garche garcha garchado garchame coger cojer chupame chupala mamala mamame mamamela
-    trolo trola travelo bollera marica sudaca sudaka cabron cabrona cornudo cornuda
-    joder jodete jodido coño coñazo weon hueon huevon aweonao webon guevon
-    retrasado retrasada retardado retardada retard retarded subnormal violador pichula pichulita
-    shit shitty cock dick pussy cunt whore slut bastard cum anal dildo milf bdsm boob boobs tits titty penis vagina nudes
-    rape rapist douche cuck twat wanker prick crap piss kike spic spick chink gook beaner dyke fag faggots paki coon loser jerk
-    fuk fck fvck fuq phuck niga
-  `)+')(?:s|es)?$');
-
-  /* C: frases largas, se buscan sobre el texto completo sin espacios */
-  const C=new RegExp(list(`
-    hijodeputa hijadeputa hijoputa sonofabitch fuckyou conchadetumadre conchatumadre conchetumare laputamadre
-    siegheil heilhitler meinkampf tercerreich arbeitmachtfrei kukluxklan whitepower whitepride whitesupremacy 14words supremaciablanca
-    killjews gasthejews negrodemierda judiodemierda
-  `));
-
-  return raw=>{
-    if(/(^|\D)14\s*[\/\-.]?\s*88(?!\d)/.test(raw))return true;
-    const base=fold(raw).replace(/(\w)!(?=\w)/g,'$1i').replace(/@/g,'a').replace(/\$/g,'s');
-    const lit=base.replace(/[^a-zɲ0-9]/g,'');
-    if(/k{3,}/.test(lit)||/(^|[^a-z])x{3,}($|[^a-z])/.test(base))return true;
-    for(const one of ['i','l']){                       /* el "1" puede ser i o l (h1tler, he1l) */
-      const t=base.replace(/0/g,'o').replace(/1/g,one).replace(/3/g,'e').replace(/4/g,'a').replace(/5/g,'s').replace(/7/g,'t');
-      const parts=t.split(/[^a-zɲ0-9]+/).filter(Boolean),toks=[];let run='';
-      for(const p of parts){                           /* "h i t l e r" o "h.i.t.l.e.r" -> una sola palabra */
-        if(p.length===1&&/[a-zɲ]/.test(p))run+=p;
-        else{if(run){toks.push(run);run=''}toks.push(p)}
-      }
-      if(run)toks.push(run);
-      if(toks.some(w=>A.test(w)||B.test(w)))return true;
-      if(C.test(toks.join('')))return true;
-    }
-    return false;
-  };
-})();
 
 (()=>{
   const b=$('#burger'),d=$('#drawer'),sc=$('#scrim'),x=$('#drawer-x');if(!b||!d||!sc||!x)return;
@@ -694,21 +659,10 @@ function headline(){
 function rnd(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 
 function carton(){
-  const sc=$('#scene'),cap=$('#fl'),au=$('#au'),chips=$$('[data-f]');
-  const NAMES=['Frente','Lateral YouWater','Dorso','Lateral legal'],AZ=[0,-Math.PI/2,Math.PI,Math.PI/2];
-  let api=null,cur=-1,spin=true,tb;
-  const mark=a=>{const i=Math.abs(a)<Math.PI/4?0:(a<=-Math.PI/4&&a>-3*Math.PI/4)?1:(a>=Math.PI/4&&a<3*Math.PI/4)?3:2;if(i!==cur){cur=i;cap.textContent=NAMES[i];chips.forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.f===i)))}};
-  const setSpin=v=>{spin=v;au.setAttribute('aria-pressed',String(v));api&&api.spin(v)};
-  au.setAttribute('aria-pressed',String(spin));
-  chips.forEach(x=>x.onclick=()=>{setSpin(false);api&&api.goTo(AZ[+x.dataset.f])});
-  au.onclick=()=>setSpin(!spin);
-  sc.onkeydown=e=>{if(!api)return;if(e.key==='ArrowLeft'){setSpin(false);api.nudge(-.45);e.preventDefault()}if(e.key==='ArrowRight'){setSpin(false);api.nudge(.45);e.preventDefault()}};
-  const bi=$('#brand'),bm=$('#brandmsg');let last='Tu marca';
-  /* Si el nombre no pasa el filtro, se muestra el aviso y la botella conserva el último nombre válido */
-  const brand=()=>{const v=bi.value.trim(),bad=!!v&&badName(v);bm.hidden=!bad;bi.setAttribute('aria-invalid',String(bad));if(!bad)last=v||'Tu marca';return last};
-  bi.addEventListener('input',()=>{brand();clearTimeout(tb);tb=setTimeout(()=>api&&api.setBrand(brand()),200)});
+  const sc=$('#scene');let api=null;
+  sc.onkeydown=e=>{if(!api)return;if(e.key==='ArrowLeft'){api.spin(false);api.nudge(-.45);e.preventDefault()}if(e.key==='ArrowRight'){api.spin(false);api.nudge(.45);e.preventDefault()}};
   if(!window.YWBottle){sc.innerHTML='<p class="mock" style="padding:40px 20px">No se pudo cargar el modelo 3D.</p>';return}
-  YWBottle.init($('#gl'),{brand:brand(),spin,reduced:RM,onAzimuth:mark}).then(a=>{if(!a){sc.innerHTML='<p class="mock" style="padding:40px 20px">Tu navegador no puede mostrar el modelo 3D.</p>';return}api=a}).catch(e=>console.error(e));
+  YWBottle.init($('#gl'),{brand:'Tu marca',spin:true,reduced:RM,onAzimuth:()=>{}}).then(a=>{if(!a){sc.innerHTML='<p class="mock" style="padding:40px 20px">Tu navegador no puede mostrar el modelo 3D.</p>';return}api=a}).catch(e=>console.error(e));
 }
 
 /* ---------- Asistente de propuesta ---------- */
