@@ -326,7 +326,7 @@ footer{background:var(--ink);border-top:0}
       <p class="lead">Agua 100% gratis para el organizador y sus asistentes. La patrocina tu pyme y tu propuesta queda en la palma de la mano de tus potenciales clientes, con tu QR en el envase.</p>
       <div class="row">
         <a class="btn r" href="#propuesta" data-go="marca">Armar mi propuesta</a>
-        <a class="btn" id="wa2" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn" id="wa2" href="https://wa.me/5491166917479" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       </div>
       <p class="note" id="qn">Unas pocas preguntas y seguimos por WhatsApp. Sin compromiso.</p>
     </div>
@@ -450,7 +450,7 @@ footer{background:var(--ink);border-top:0}
           <h3>A nadie le gusta la publicidad. A todos nos gusta una buena oferta.</h3>
           <p>La publicidad nos interrumpe cuando trabajamos y también cuando queremos desconectar un rato. Y siempre nos hicimos la misma pregunta: ¿por qué le compraríamos a alguien que nos molesta?</p>
           <p>YouWater nace de esa pregunta. Primero tu marca da algo que la gente de verdad usa, y después le hace una oferta que conviene. El organizador tiene agua gratis, el asistente una propuesta en la mano y la pyme un lugar donde presentarse sin interrumpir. Es la diferencia entre que te toleren y que te agradezcan. Te acompañamos de la propuesta al reporte final.</p>
-          <a class="btn r" id="wa3" href="https://wa.me/5491150462722" target="_blank" rel="noopener">Hablar con YouWater</a>
+          <a class="btn r" id="wa3" href="https://wa.me/5491166917479" target="_blank" rel="noopener">Hablar con YouWater</a>
         </div>
       </div>
 
@@ -472,7 +472,7 @@ footer{background:var(--ink);border-top:0}
         <p class="lead">Elegí tu caso y respondé. Te armamos el mensaje y seguimos por WhatsApp.</p>
       </div>
       <div class="panel" id="sim" aria-live="polite">
-        <noscript><p>Activá JavaScript para armar tu propuesta o escribinos directo por <a href="https://wa.me/5491150462722">WhatsApp</a>.</p></noscript>
+        <noscript><p>Activá JavaScript para armar tu propuesta o escribinos directo por <a href="https://wa.me/5491166917479">WhatsApp</a>.</p></noscript>
       </div>
     </div>
   </section>
@@ -513,7 +513,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const waUrl=(n,m)=>`https://wa.me/${n}`+(m?`?text=${encodeURIComponent(m)}`:'');
 
 /* ---------- Configuración (se puede reemplazar con un config.json) ---------- */
-const DEF={whatsapp:{number:"5491150462722"},flows:{
+const DEF={whatsapp:{number:"5491166917479"},flows:{
  marca:{label:"Soy una pyme o marca y quiero patrocinar",
   msg:"Hola YouWater, soy {nombre}. Me interesa el sponsor para mi marca ({negocio}). Quiero llegar a: {publico}. Quiero que la gente: {accion}. Evento: {evento}. Plazo: {plazo}. Inversión estimada: {inversion}.",
   steps:[
@@ -575,7 +575,7 @@ carton();
 fetch('config.json').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>({})).then(c=>{const C={...DEF,...c};links(C);sim(C)});
 
 function links(C){
-  const n=((C.whatsapp&&C.whatsapp.number)||'5491150462722').replace(/\D/g,'');
+  const n=((C.whatsapp&&C.whatsapp.number)||'5491166917479').replace(/\D/g,'');
   const M={
     '#wa2':"Hola YouWater, vi la web y quiero patrocinar con mi marca el agua de un evento. ¿Me cuentan cómo funciona?",
     '#wa3':"Hola YouWater, vi la web y quiero hablar con ustedes."
